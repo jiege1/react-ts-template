@@ -1,8 +1,9 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+const tsImportPluginFactory = require('ts-import-plugin');
 const webpack = require('webpack');
 
 const rootDir = process.cwd();
@@ -48,6 +49,40 @@ module.exports = {
         //   }
         // },
       },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: true
+              }
+            }
+          ],
+        }),
+      },
+      {
+        test: /\.less$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'typings-for-css-modules-loader',
+              options: {
+                modules: true,
+                namedExport: true,
+                localIdentName: '[local]_[hash:base64:6]',
+                minimize: true,
+              }
+            },
+            {
+              loader: 'less-loader',
+            }
+          ],
+          fallback: 'style-loader'
+        })
+      },
     ]
   },
   resolve: {
@@ -62,7 +97,10 @@ module.exports = {
     }),
     new CaseSensitivePathsPlugin(),
     // 将css写入css文件，并注入html模版
-    // new ExtractTextPlugin({filename: 'index.min.css', allChunks: true}),
+    new ExtractTextPlugin({
+      filename: 'index.min.css',
+      allChunks: true,
+    }),
     new webpack.optimize.ModuleConcatenationPlugin({})
   ],
 };

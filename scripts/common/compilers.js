@@ -1,6 +1,6 @@
 
-const projectRootPaths = require('../../paths').projectRootPaths();
-const Webpack = require(projectRootPaths.nodeModulesPath + '/webpack');
+const Webpack = require('webpack');
+const chalk = require('chalk');
 
 const webpackCompiler = (webpackConfig) => {
   let compiler;
@@ -11,12 +11,12 @@ const webpackCompiler = (webpackConfig) => {
   try {
     compiler = Webpack(webpackConfig);
   } catch (e) {
-    console.error('[ERR]: Failed to compile.');
+    console.log(chalk.red('[ERR]: Failed to compile.'));
     console.log('');
-    console.log('正在执行 webpack 编译出错');
-    console.error(e.message || e);
+    console.log(chalk.red('正在执行 webpack 编译出错'));
+    console.log(chalk.red(e.message || e));
     console.log('');
-    process.exit(1);
+    process.exit();
   }
 
 

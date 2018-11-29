@@ -1,16 +1,10 @@
 import * as React from 'react';
+import * as css from './index.less';
 
-const Router: React.SFC<IRouter> = (props) => {
-  console.log('props', props);
+export default () => {
   return (
-    <div>
+    <div className={css.router}>
       Router
     </div>
   );
 };
-
-export interface IRouter {
-
-}
-
-export default Router;

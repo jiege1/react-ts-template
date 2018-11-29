@@ -1,8 +1,8 @@
 {
-  "name": "友鱼 新零售后台 api 文档",
+  "name": "react-ts-template api 文档",
   "version": "1.0.0",
-  "description": "友鱼 新零售后台 api 文档",
-  "title": "友鱼 新零售后台 api 文档",
+  "description": "react-ts-template api 文档",
+  "title": "react-ts-template api 文档",
   "template": {
     "withCompare": true,
     "withGenerator": true
