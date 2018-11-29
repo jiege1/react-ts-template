@@ -1,0 +1,22 @@
+{
+  "presets": [
+    "react",
+    ["env"],
+    "stage-1"
+  ],
+  "env": {
+    "test": {
+      "presets": [["env"], "react", "stage-1"]
+    }
+  },
+  "plugins": [
+    ["transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true,
+      "moduleName": "@babel/runtime"
+    }],
+    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+  ]
+}
+

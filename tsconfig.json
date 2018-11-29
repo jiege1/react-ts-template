@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "allowJs": true,
+    "baseUrl": "src",
+    "module": "commonjs",
+    "removeComments": true,
+    // 可以使用 Promise, async, await等新语法
+    "target": "es2017",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true
+  },
+  "paths": {
+    "components": "components",
+    "containers": "containers",
+    "pages": "pages",
+    "models": "models",
+    "store": "store",
+    "api": "api",
+    "common": "common"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "global": "react"
+}
