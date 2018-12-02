@@ -14,8 +14,8 @@
   "paths": {
     "components": "components",
     "containers": "containers",
+    "router": "router",
     "pages": "pages",
-    "models": "models",
     "store": "store",
     "api": "api",
     "common": "common"

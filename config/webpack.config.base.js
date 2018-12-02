@@ -31,23 +31,20 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         loader: 'ts-loader',
-        // options: {
-        //   transpileOnly: true,
-        //   experimentalWatchApi: true,
-        //   getCustomTransformers: () => {
-        //     console.log('getCustomTransformers');
-        //     return {
-        //       before: [tsImportPluginFactory({
-        //         libraryDirectory: 'es',
-        //         libraryName: 'antd',
-        //         style: 'css',
-        //       })]
-        //     };
-        //   },
-        //   compilerOptions: {
-        //     module: 'es2015'
-        //   }
-        // },
+        options: {
+          transpileOnly: true,
+          experimentalWatchApi: true,
+          getCustomTransformers: () => ({
+            before: [tsImportPluginFactory({
+              libraryDirectory: 'es',
+              libraryName: 'antd',
+              style: 'css',
+            })]
+          }),
+          compilerOptions: {
+            module: 'es2015'
+          }
+        },
       },
       {
         test: /\.css$/,
@@ -87,6 +84,15 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
+    alias: {
+      store: path.resolve(srcDir, 'store'),
+      router: path.resolve(srcDir, 'router'),
+      pages: path.resolve(srcDir, 'pages'),
+      components: path.resolve(srcDir, 'components'),
+      containers: path.resolve(srcDir, 'containers'),
+      common: path.resolve(srcDir, 'common'),
+      api: path.resolve(srcDir, 'api'),
+    }
   },
   plugins: [
     // 指定一个html模版，

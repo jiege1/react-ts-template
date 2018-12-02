@@ -75,7 +75,7 @@ module.exports = {
     "arrow-spacing": 2,
     "no-useless-computed-key": 2,
     "template-curly-spacing": 2,
-    "generator-star-spacing": [1, {"before": false, "after": true}],
+    "generator-star-spacing": [0, {"before": false, "after": true}],
     "yield-star-spacing": [1, {"before": false, "after": true}],
     /**
      * 最佳实践
